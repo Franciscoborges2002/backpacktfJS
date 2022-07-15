@@ -12,7 +12,7 @@ const header= {
     Description: To know if backpack.tf is online and operatable
 */
 async function index(){
-    //let api_key = this.api_key;
+    let api_key = this.api_key;
     try{
         let response = await axios.get('https://backpack.tf/api/', header)
         console.log(response)
@@ -29,9 +29,7 @@ async function index(){
     Description: Get a info about an accounts, more info https://backpack.tf/api/docs/user_info
 */
 async function getUserInfo(steamId64){
-    //let api_key = this.api_key;
-    
-
+    let api_key = this.api_key;
     if(steamId64 === ''){
         new Error("SteamID 64 not given.")
     }else{
@@ -55,7 +53,7 @@ async function getUserInfo(steamId64){
     Description: Get a info about currencies in tf2
 */
 async function getCurrencies(raw = 0){
-    //let api_key = this.api_key;
+    let api_key = this.api_key;
     try{
         let response = await axios.get('https://backpack.tf/api/IGetCurrencies/v1?raw' + raw + '&key=' + api_key)
         console.log(response.data)
@@ -66,7 +64,7 @@ async function getCurrencies(raw = 0){
 }
 
 async function getPriceHistory(priceIndex){
-    //let api_key = this.api_key;
+    let api_key = this.api_key;
     try{
         let response = await axios.get('https://backpack.tf/api/IGetCurrencies/v1?raw' + priceIndex + '&key=' + api_key)
         console.log(response.data)
@@ -76,10 +74,19 @@ async function getPriceHistory(priceIndex){
     }
 }
 
-getCurrencies(0)
-
 class API {
-    constructor (api_key) {
+    constructor(api_key) {
         this.api_key = api_key;
     }
 }
+
+API.prototype.index = index
+API.prototype.isBPOn = index
+
+API.prototype.getUserInfo = getUserInfo
+API.prototype.userInfo = getUserInfo
+
+API.prototype.getCurrencies = getCurrencies
+API.prototype.currencies = getCurrencies
+
+module.exports = API;
