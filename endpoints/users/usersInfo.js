@@ -13,7 +13,7 @@ module.exports = async function getUserInfo(steamId64){
     }else{
         try{
             let response = await axios.get('https://backpack.tf/api/users/info/v1?steamids=' + steamId64 + '&key=' + api_key)
-            console.log(response.data)
+            return response.data
         }catch(err) {
             console.log(err.response.data)
             new Error(err.response.data);
