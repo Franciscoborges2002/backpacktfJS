@@ -6,11 +6,15 @@ const getPriceHistory = require('./endpoints/webapi-economy/IGetPriceHistory')
 const getUserInfo = require('./endpoints/users/usersInfo')
 const getPricesV4 = require('./endpoints/webapi-economy/IGetPricesV4')
 const getSpecialItems = require('./endpoints/webapi-economy/IGetSpecialItemsV1')
-
+const getUser = require('./endpoints/webapi-users/IGetUsersV3')
+const getImpersonatedUsers = require('./endpoints/webapi-users/IGetImpersonatedUsers')
+const classifiedsSearch = require('./endpoints/classifieds/classifiedsSearchV1')
+const classifiedsListings = require('./endpoints/classifieds/classifiedsListningsV1')
 
 class API {
-    constructor(api_key) {
+    constructor(api_key, accountAccessToken) {
         this.api_key = api_key;
+        this.token = accountAccessToken;
     }
 }
 
@@ -26,10 +30,18 @@ API.prototype.priceHistory = getPriceHistory
 API.prototype.getUserInfo = getUserInfo
 API.prototype.userInfo = getUserInfo
 
+API.prototype.getUser = getUser
+
+API.prototype.getImpersonatedUsers = getImpersonatedUsers
+API.prototype.impersonatedUsers = getImpersonatedUsers
+
 API.prototype.getPrices = getPricesV4
 API.prototype.getPricesV4 = getPricesV4
 
 API.prototype.getSpecialItems = getSpecialItems
 API.prototype.getSpecialItemsV1 = getSpecialItems
+
+API.prototype.getClassifiedsListings = classifiedsListings
+API.prototype.classifiedsListings = classifiedsListings
 
 module.exports = API;
