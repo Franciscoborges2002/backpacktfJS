@@ -9,7 +9,11 @@ const getSpecialItems = require('./endpoints/webapi-economy/IGetSpecialItemsV1')
 const getUser = require('./endpoints/webapi-users/IGetUsersV3')
 const getImpersonatedUsers = require('./endpoints/webapi-users/IGetImpersonatedUsers')
 const classifiedsSearch = require('./endpoints/classifieds/classifiedsSearchV1')
-const classifiedsListings = require('./endpoints/classifieds/classifiedsListningsV1')
+const classifiedsListings = require('./endpoints/classifieds/classifiedsListingsV1')
+
+const getClassifiedsAlert = require('./endpoints/alerts/getClassfiedsAlerts')
+
+const getListingSnapshot = require('./endpoints/classifieds/classifiedsListingSnapshots')
 
 class API {
     constructor(api_key, accountAccessToken) {
@@ -43,5 +47,11 @@ API.prototype.getSpecialItemsV1 = getSpecialItems
 
 API.prototype.getClassifiedsListings = classifiedsListings
 API.prototype.classifiedsListings = classifiedsListings
+
+API.prototype.getClassifiedsAlert = getClassifiedsAlert
+API.prototype.ClassifiedsAlert = getClassifiedsAlert
+
+API.prototype.getListingSnapshot = getListingSnapshot
+API.prototype.listingSnapshot = getListingSnapshot
 
 module.exports = API;
