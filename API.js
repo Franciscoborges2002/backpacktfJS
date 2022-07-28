@@ -11,7 +11,8 @@ const getImpersonatedUsers = require('./endpoints/webapi-users/IGetImpersonatedU
 const classifiedsSearch = require('./endpoints/classifieds/classifiedsSearchV1')
 const classifiedsListings = require('./endpoints/classifieds/classifiedsListingsV1')
 
-const getClassifiedsAlert = require('./endpoints/alerts/getClassfiedsAlerts')
+const getClassifiedsAlertById = require('./endpoints/alerts/getClassifiedsAlertsById')
+const getClassifiedsAlert = require('./endpoints/alerts/getClassifiedsAlerts')
 
 const getListingSnapshot = require('./endpoints/classifieds/classifiedsListingSnapshots')
 
@@ -48,8 +49,11 @@ API.prototype.getSpecialItemsV1 = getSpecialItems
 API.prototype.getClassifiedsListings = classifiedsListings
 API.prototype.classifiedsListings = classifiedsListings
 
+API.prototype.getClassifiedsAlertById = getClassifiedsAlertById
+API.prototype.classifiedsAlertById = getClassifiedsAlertById
+
 API.prototype.getClassifiedsAlert = getClassifiedsAlert
-API.prototype.ClassifiedsAlert = getClassifiedsAlert
+API.prototype.classifiedsAlert = getClassifiedsAlert
 
 API.prototype.getListingSnapshot = getListingSnapshot
 API.prototype.listingSnapshot = getListingSnapshot
