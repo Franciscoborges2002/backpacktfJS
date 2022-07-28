@@ -5,7 +5,7 @@ const axios = require('axios')
     Method: GET
     Parameters: - skip Offset at which to return results.
                 - limit Result count.
-    Description: Get a info about an accounts, more info https://backpack.tf/api/docs/user_info
+    Description: Get alerts
 */
 module.exports = async function getClassfiedsAlerts(skip = 0, limit = 0){
     let token = this.token;

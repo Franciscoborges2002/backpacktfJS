@@ -4,7 +4,7 @@ const axios = require('axios')
     Uses url https://backpack.tf/api/classifieds/alerts/{id}
     Method: GET
     Parameters: - steamId64 REQUIRED
-    Description: Get a info about an accounts, more info https://backpack.tf/api/docs/user_info
+    Description: Get alerts by id
 */
 module.exports = async function getClassfiedsAlerts(id){
     let api_key = this.api_key;

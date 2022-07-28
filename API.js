@@ -16,6 +16,8 @@ const getClassifiedsAlert = require('./endpoints/alerts/getClassifiedsAlerts')
 
 const getListingSnapshot = require('./endpoints/classifieds/classifiedsListingSnapshots')
 
+const getInventoryValue = require('./endpoints/inventory/inventoryValue')
+
 class API {
     constructor(api_key, accountAccessToken) {
         this.api_key = api_key;
@@ -57,5 +59,8 @@ API.prototype.classifiedsAlert = getClassifiedsAlert
 
 API.prototype.getListingSnapshot = getListingSnapshot
 API.prototype.listingSnapshot = getListingSnapshot
+
+API.prototype.getInventoryValue = getInventoryValue
+API.prototype.inventoryValue = getInventoryValue
 
 module.exports = API;
