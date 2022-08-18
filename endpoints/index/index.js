@@ -7,9 +7,9 @@ const axios = require('axios')
     Description: To know if backpack.tf is online and operatable
 */
 module.exports = async function index(){
+    var token = this.token;
     try{
-        let response = await axios.get('https://backpack.tf/api/')
-        console.log(response)
+        let response = await axios.get('https://backpack.tf/api?token=' + token)
         return response;
     }catch(err) {
         //console.log(err.response.data)
