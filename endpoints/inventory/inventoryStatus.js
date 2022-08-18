@@ -7,12 +7,12 @@ const axios = require('axios')
                 - limit Result count.
     Description: Get a info about an accounts, more info https://backpack.tf/api/docs/user_info
 */
-module.exports = async function getValue(steamId){
+module.exports = async function getStatus(steamId){
     if(steamId === ''){
         throw new Error("No steam id given.");
     }else{
         try{
-            let response = await axios.get('https://backpack.tf/api/inventory/' + steamId + '/values');
+            let response = await axios.get('https://backpack.tf/api/inventory/' + steamId + '/status');
             return response.data;
         }catch(err) {
             throw new Error(err.response.data);
