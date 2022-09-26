@@ -11,10 +11,13 @@ const axios = require('axios')
 module.exports = async function getCurrencies(raw = 0){
     let api_key = this.api_key;
     try{
-        let response = await axios.get('https://backpack.tf/api/IGetCurrencies/v1?raw' + raw + '&key=' + api_key)
-        console.log(response.data)
+        if(raw > 2){
+            throw Error("raw cannot be > 2");
+        }
+
+        let response = await axios.get('https://backpack.tf/api/IGetCurrencies/v1?raw=' + raw + '&key=' + api_key)
+        return response.data;
     }catch(err) {
-        console.log(err.response.data)
-        new Error(err.response.data);
+        throw Error(err);
     }
 }
