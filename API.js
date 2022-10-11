@@ -9,10 +9,11 @@ const getUser = require('./endpoints/webapi-users/IGetUsersV3');
 const getImpersonatedUsers = require('./endpoints/webapi-users/IGetImpersonatedUsers');
 
 //***** WEBAPI-CLASSIFIEDS *****//
+const getUserTradesV1 = require('./endpoints/webapi-classifieds/IGetUserTradesV1');
 
 //***** CLASSIFIEDS *****//
-const classifiedsSearch = require('./endpoints/classifieds/classifiedsSearchV1');
-const classifiedsListings = require('./endpoints/classifieds/classifiedsListingsV1');
+const getClassifiedsSearch = require('./endpoints/classifieds/getClassifiedsSearchV1');
+const getClassifiedsListings = require('./endpoints/classifieds/getClassifiedsListingsV1');
 
 //***** ALERTS PART *****//
 const getClassifiedsAlertById = require('./endpoints/alerts/getClassifiedsAlertsById');
@@ -37,7 +38,7 @@ const postInventoryRefresh = require('./endpoints/inventory/getInventoryRefresh'
 const getUserInfo = require('./endpoints/users/usersInfo');
 
 //***** CLASSIFIEDS-REST-ALPHA *****//
-const getListingSnapshot = require('./endpoints/classifieds/classifiedsListingSnapshots');
+const getListingSnapshot = require('./endpoints/classifieds/getClassifiedsListingSnapshots');
 
 
 class API {
@@ -67,13 +68,15 @@ API.prototype.getImpersonatedUsers = getImpersonatedUsers;
 API.prototype.impersonatedUsers = getImpersonatedUsers;
 
 //***** WEBAPI-CLASSIFIEDS *****//
+API.prototype.getUserTrades = getUserTradesV1;
+API.prototype.userTrades = getUserTradesV1;
 
 //***** CLASSIFIEDS *****//
-API.prototype.getClassifiedsSearch = classifiedsSearch;
-API.prototype.classifiedsSearch = classifiedsSearch;
+API.prototype.getClassifiedsSearch = getClassifiedsSearch;
+API.prototype.classifiedsSearch = getClassifiedsSearch;
 
-API.prototype.getClassifiedsListings = classifiedsListings;
-API.prototype.classifiedsListings = classifiedsListings;
+API.prototype.getClassifiedsListings = getClassifiedsListings;
+API.prototype.classifiedsListings = getClassifiedsListings;
 
 //***** ALERTS PART *****//
 API.prototype.getClassifiedsAlertById = getClassifiedsAlertById;
