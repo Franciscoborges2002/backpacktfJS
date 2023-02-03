@@ -9,7 +9,7 @@ const axios = require('axios')
                           nothing : assume as '--' for both buy and sell
     Description: Delete alert by item name instaed of id
 */
-module.exports = async function getClassfiedsAlerts(itemName, intent){
+module.exports = async function deleteClassfiedsAlerts(itemName, intent){
     intent = intent.toLowerCase();
     if(intent != 'buy' || 'sell' || ''){
         new Error("Intent needs to be one of the folowing: 'buy', 'sell' or ''");

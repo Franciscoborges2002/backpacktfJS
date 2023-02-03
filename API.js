@@ -16,7 +16,7 @@ const getClassifiedsSearch = require('./endpoints/classifieds/getClassifiedsSear
 const getClassifiedsListings = require('./endpoints/classifieds/getClassifiedsListingsV1');
 
 //***** ALERTS PART *****//
-const getClassifiedsAlertById = require('./endpoints/alerts/getClassifiedsAlertsById');
+const getClassifiedsAlertById = require('./endpoints/alerts/getClassifiedsAlertById');
 const getClassifiedsAlert = require('./endpoints/alerts/getClassifiedsAlerts');
 const postClassifieds = require('./endpoints/alerts/postClassifiedAlert');
 const deleteClassifiedsAlertById = require('./endpoints/alerts/deleteClassifiedsAlertById');

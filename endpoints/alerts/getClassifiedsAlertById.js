@@ -12,7 +12,7 @@ module.exports = async function getClassfiedsAlerts(id){
         new Error("Id not given.")
     }else{
         try{
-            let response = await axios.get('https://backpack.tf/api/classifieds/alerts/' + id + '&key=' + api_key)
+            let response = await axios.get('https://backpack.tf/api/classifieds/alerts/' + id);//+ '&key=' + api_key
             return response.data
         }catch(err) {
             console.log(err.response.data)

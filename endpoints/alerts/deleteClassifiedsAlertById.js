@@ -6,7 +6,7 @@ const axios = require('axios')
     Parameters: - id of the alert to delete
     Description: Delete alert
 */
-module.exports = async function getClassfiedsAlerts(id){
+module.exports = async function deleteClassfiedsAlerts(id){
     try{
         let response = await axios.delete('https://backpack.tf/api/classifieds/alerts/' + id);
         return response.data
