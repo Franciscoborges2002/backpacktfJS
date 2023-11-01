@@ -14,11 +14,19 @@ const getUserTradesV1 = require('./endpoints/webapi-classifieds/IGetUserTradesV1
 //***** CLASSIFIEDS *****//
 const getClassifiedsSearch = require('./endpoints/classifieds/getClassifiedsSearchV1');
 const getClassifiedsListings = require('./endpoints/classifieds/getClassifiedsListingsV1');
+const deleteClassifiedsV1 = require('./endpoints/classifieds/deleteClassifiedsV1');
+const postClassifieds = require('./endpoints/classifieds/postCreateListings');
+const getClassifiedsListingsById = require('./endpoints/classifieds/getClassifiedsListingsById');
+const postCreateListingsSingle = require('./endpoints/classifieds/postCreateListingsSingle');
+const deleteClassifiedsListing = require('./endpoints/classifieds/deleteClassifiedsListing');
+const getClassifiedsLimits = require('./endpoints/classifieds/getClassifiedsLimits');
+const getClassifiedsListingsSelf = require('./endpoints/classifieds/getClassifiedsListingsSelf');
+const getListingSnapshot = require('./endpoints/classifieds/getClassifiedsListingSnapshots');
 
 //***** ALERTS PART *****//
 const getClassifiedsAlertById = require('./endpoints/alerts/getClassifiedsAlertById');
 const getClassifiedsAlert = require('./endpoints/alerts/getClassifiedsAlerts');
-const postClassifieds = require('./endpoints/alerts/postClassifiedAlert');
+const postClassifiedsAlert = require('./endpoints/alerts/postClassifiedAlert');
 const deleteClassifiedsAlertById = require('./endpoints/alerts/deleteClassifiedsAlertById');
 const deleteClassifiedsAlert = require('./endpoints/alerts/deleteClassifiedsAlert');
 
@@ -38,8 +46,6 @@ const postInventoryRefresh = require('./endpoints/inventory/getInventoryRefresh'
 const getUserInfo = require('./endpoints/users/usersInfo');
 
 //***** CLASSIFIEDS-REST-ALPHA *****//
-const getListingSnapshot = require('./endpoints/classifieds/getClassifiedsListingSnapshots');
-
 
 class API {
     constructor(api_key, accountAccessToken) {
@@ -78,6 +84,28 @@ API.prototype.classifiedsSearch = getClassifiedsSearch;
 API.prototype.getClassifiedsListings = getClassifiedsListings;
 API.prototype.classifiedsListings = getClassifiedsListings;
 
+API.prototype.deleteClassifiedsV1 = deleteClassifiedsV1;
+API.prototype.deleteClassifiedsBulk = deleteClassifiedsV1;
+
+API.prototype.postClassifiedsBulk = postClassifieds;
+API.prototype.createClassifiedBulk = postClassifieds;
+
+API.prototype.getClassifiedsListingsById = getClassifiedsListingsById;
+API.prototype.classifiedsListingsById = getClassifiedsListingsById;
+
+API.prototype.deleteClassifiedsListing = deleteClassifiedsListing;
+API.prototype.deleteClassified = deleteClassifiedsListing;
+
+API.prototype.getClassifiedsLimits = getClassifiedsLimits;
+API.prototype.classifiedsLimits = getClassifiedsLimits;
+
+API.prototype.postClassifiedsV1 = postCreateListingsSingle;
+API.prototype.postClassifieds = postCreateListingsSingle;
+API.prototype.createClassified = postCreateListingsSingle;
+
+API.prototype.getClassifiedsListingsSelf = getClassifiedsListingsSelf;
+API.prototype.lassifiedsListingsSelf = getClassifiedsListingsSelf;
+
 //***** ALERTS PART *****//
 API.prototype.getClassifiedsAlertById = getClassifiedsAlertById;
 API.prototype.classifiedsAlertById = getClassifiedsAlertById;
@@ -85,8 +113,8 @@ API.prototype.classifiedsAlertById = getClassifiedsAlertById;
 API.prototype.getClassifiedsAlert = getClassifiedsAlert;
 API.prototype.classifiedsAlert = getClassifiedsAlert;
 
-API.prototype.postClassifiedsAlert = postClassifieds;
-API.prototype.createClassifiedsAlert = postClassifieds;
+API.prototype.postClassifiedsAlert = postClassifiedsAlert;
+API.prototype.createClassifiedsAlert = postClassifiedsAlert;
 
 API.prototype.deleteClassifiedsAlertById = deleteClassifiedsAlertById;
 

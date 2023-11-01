@@ -3,13 +3,13 @@ const axios = require('axios')
 /*
     Uses url https://backpack.tf/api/classifieds/listings
     Method: POST
-    Parameters: 
-    Description: https://backpack.tf/api/docs/create_listings see on how to make the body
+    Parameters: - steamId64 REQUIRED
+    Description: Create a listning
 */
-module.exports = async function createListing(body){
+module.exports = async function createListing(listingId){
     let api_key = this.api_key;
     try{
-        let response = await axios.get('https://backpack.tf/api/classifieds/listings', body)
+        let response = await axios.delete('https://backpack.tf/api/classifieds/listings/' + listingId);
         return response.data
     }catch(err) {
         console.log(err.response.data)
